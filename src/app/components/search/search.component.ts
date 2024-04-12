@@ -6,6 +6,8 @@ import { ModalSelectCharacterComponent } from '../modal-select-character/modal-s
 import { lastValueFrom } from 'rxjs';
 import { CharacterBoxComponent } from '../character-box/character-box.component';
 import { LocalStorageService } from '../../services/localstorage.service';
+import { ICharacter } from '../../interfaces/character.interface';
+import { IApiResponse } from '../../interfaces/api-response.interrface';
 
 @Component({
   selector: 'app-search',
@@ -17,11 +19,11 @@ import { LocalStorageService } from '../../services/localstorage.service';
 export class SearchComponent {
   searchText1: string = '';
   searchText2: string = '';
-  player1: any = null;
-  player2: any = null;
+  player1!: ICharacter | null;
+  player2!: ICharacter | null;
 
   constructor(
-    private httpService: HttpService<any>,
+    private httpService: HttpService<IApiResponse>,
     private modalService: ModalService,
     private localStorageService: LocalStorageService
   ) {
@@ -38,7 +40,7 @@ export class SearchComponent {
     if (player === 1) searchText = this.searchText1;
     if (player === 2) searchText = this.searchText2;
     if (searchText.trim() !== '') {
-      const searchResult = await lastValueFrom(this.httpService.get('characters', { nameStartsWith: searchText }));
+      const searchResult = await lastValueFrom(this.httpService.get<IApiResponse>('characters', { nameStartsWith: searchText }));
       if (searchResult) {
         if (searchResult.code == 200) {
           console.log(searchResult.data.results)
@@ -48,7 +50,7 @@ export class SearchComponent {
     }
   }
 
-  openModalSelect(dados: any, player: number): void {
+  openModalSelect(dados: ICharacter[], player: number): void {
     let modalWidth = '90vw';
     if (window.innerWidth > 768) modalWidth = '600px';
     const dialogRef = this.modalService.openModal(ModalSelectCharacterComponent, {
