@@ -12,7 +12,7 @@ export class HttpService<T> {
 
   constructor(private httpClient: HttpClient) { }
 
-  get(endpoint: string, params?: any): Observable<T> {
+  get<T>(endpoint: string, params?: any): Observable<T> {
     let httpParams = new HttpParams();
     httpParams = httpParams.append('apikey', this.apiKey);
     httpParams = httpParams.append('limit', this.limit)

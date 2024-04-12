@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ICharacter } from '../../interfaces/character.interface';
 
 @Component({
   selector: 'app-character-box',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './character-box.component.scss'
 })
 export class CharacterBoxComponent {
-    @Input() character: any;
+    @Input() character!: ICharacter;
 }

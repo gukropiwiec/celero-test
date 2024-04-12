@@ -1,0 +1,1258 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>celero-test documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">celero-test documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  BoardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/board/board.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-board</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/PlacarComponent.html" target="_self" >PlacarComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./board.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./board.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#board" >board</a>
+                            </li>
+                            <li>
+                                <a href="#currentPlayer" >currentPlayer</a>
+                            </li>
+                            <li>
+                                <a href="#localStorageSubscription" >localStorageSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#placar" >placar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#checkResultado" >checkResultado</a>
+                            </li>
+                            <li>
+                                <a href="#fazerJogada" >fazerJogada</a>
+                            </li>
+                            <li>
+                                <a href="#isBoardFull" >isBoardFull</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openModalSelect" >openModalSelect</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openSnackBar" >openSnackBar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#playerScore" >playerScore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetBoard" >resetBoard</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(localStorageService: <a href="../injectables/LocalStorageService.html" target="_self">LocalStorageService</a>, modalService: <a href="../injectables/ModalService.html" target="_self">ModalService</a>, _snackBar: MatSnackBar)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/board/board.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>localStorageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LocalStorageService.html" target="_self" >LocalStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ModalService.html" target="_self" >ModalService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkResultado"></a>
+                    <span class="name">
+                        <span ><b>checkResultado</b></span>
+                        <a href="#checkResultado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkResultado()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fazerJogada"></a>
+                    <span class="name">
+                        <span ><b>fazerJogada</b></span>
+                        <a href="#fazerJogada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fazerJogada(row: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, col: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>col</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBoardFull"></a>
+                    <span class="name">
+                        <span ><b>isBoardFull</b></span>
+                        <a href="#isBoardFull"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isBoardFull()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openModalSelect"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>openModalSelect</b></span>
+                        <a href="#openModalSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openModalSelect(result: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>result</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openSnackBar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>openSnackBar</b></span>
+                        <a href="#openSnackBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openSnackBar(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="183"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playerScore"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>playerScore</b></span>
+                        <a href="#playerScore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>playerScore(player: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>player</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetBoard"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetBoard</b></span>
+                        <a href="#resetBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetBoard()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/components/board/board.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="board"></a>
+                    <span class="name">
+                        <span ><b>board</b></span>
+                        <a href="#board"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[][]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;],
+    [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;],
+    [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;]
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/board/board.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentPlayer"></a>
+                    <span class="name">
+                        <span ><b>currentPlayer</b></span>
+                        <a href="#currentPlayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;X&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/board/board.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localStorageSubscription"></a>
+                    <span class="name">
+                        <span ><b>localStorageSubscription</b></span>
+                        <a href="#localStorageSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/board/board.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placar"></a>
+                    <span class="name">
+                        <span ><b>placar</b></span>
+                        <a href="#placar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IPlacar.html" target="_self" >IPlacar</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    player1: {
+      score: &#x27;0&#x27;,
+      name: &#x27;&#x27;,
+      thumbnail: &#x27;&#x27;
+    },
+    player2: {
+      score: &#x27;0&#x27;,
+      name: &#x27;&#x27;,
+      thumbnail: &#x27;&#x27;
+    },
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/board/board.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { LocalStorageService } from &#x27;../../services/localstorage.service&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { ModalService } from &#x27;../../services/modal.service&#x27;;
+import { ModalResultComponent } from &#x27;../modal-result/modal-result.component&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { IPlacar } from &#x27;../../interfaces/placar.interface&#x27;;
+import { PlacarComponent } from &#x27;../placar/placar.component&#x27;;
+
+@Component({
+  selector: &#x27;app-board&#x27;,
+  standalone: true,
+  imports: [PlacarComponent],
+  templateUrl: &#x27;./board.component.html&#x27;,
+  styleUrl: &#x27;./board.component.scss&#x27;
+})
+export class BoardComponent implements OnInit {
+  board: string[][] &#x3D; [
+    [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;],
+    [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;],
+    [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;]
+  ];
+  currentPlayer: string &#x3D; &#x27;X&#x27;;
+  placar: IPlacar &#x3D; {
+    player1: {
+      score: &#x27;0&#x27;,
+      name: &#x27;&#x27;,
+      thumbnail: &#x27;&#x27;
+    },
+    player2: {
+      score: &#x27;0&#x27;,
+      name: &#x27;&#x27;,
+      thumbnail: &#x27;&#x27;
+    },
+  }
+  localStorageSubscription: Subscription;
+
+  constructor(
+    private localStorageService: LocalStorageService,
+    private modalService: ModalService,
+    private _snackBar: MatSnackBar
+  ) {
+    this.localStorageSubscription &#x3D; this.localStorageService.getStorageObservable().subscribe((key: string) &#x3D;&gt; {
+      if (key &#x3D;&#x3D;&#x3D; &#x27;player1&#x27;) {
+        const character &#x3D; JSON.parse(localStorage.getItem(&#x27;player1&#x27;) as string) || null
+        this.placar.player1.name &#x3D; character?.name || &#x27;&#x27;
+        this.placar.player1.thumbnail &#x3D; &#x60;${character?.thumbnail.path}.${character?.thumbnail.extension}&#x60;
+      }
+      if (key &#x3D;&#x3D;&#x3D; &#x27;player2&#x27;) {
+        const character &#x3D; JSON.parse(localStorage.getItem(&#x27;player2&#x27;) as string) || null
+        this.placar.player2.name &#x3D; JSON.parse(localStorage.getItem(&#x27;player2&#x27;) as string)?.name || &#x27;&#x27;
+        this.placar.player2.thumbnail &#x3D; &#x60;${character?.thumbnail.path}.${character?.thumbnail.extension}&#x60;
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    const character1 &#x3D; JSON.parse(localStorage.getItem(&#x27;player1&#x27;) as string) || null
+    this.placar.player1.name &#x3D; character1?.name || &#x27;&#x27;
+    this.placar.player1.thumbnail &#x3D; &#x60;${character1?.thumbnail.path}.${character1?.thumbnail.extension}&#x60;
+    const character2 &#x3D; JSON.parse(localStorage.getItem(&#x27;player2&#x27;) as string) || null
+    this.placar.player2.name &#x3D; JSON.parse(localStorage.getItem(&#x27;player2&#x27;) as string)?.name || &#x27;&#x27;
+    this.placar.player2.thumbnail &#x3D; &#x60;${character2?.thumbnail.path}.${character2?.thumbnail.extension}&#x60;
+    this.placar.player1.score &#x3D; localStorage.getItem(&#x27;player1-score&#x27;) || &#x27;0&#x27;
+    this.placar.player2.score &#x3D; localStorage.getItem(&#x27;player2-score&#x27;) || &#x27;0&#x27;
+  }
+
+  fazerJogada(row: number, col: number) {
+    if (!localStorage.getItem(&#x27;player1&#x27;) || !localStorage.getItem(&#x27;player2&#x27;)) {
+      this.openSnackBar(&#x27;Primeiro selecione os dois jogadores para iniciar.&#x27;)
+      return;
+    }
+    if (!this.board[row][col]) {
+      this.board[row][col] &#x3D; this.currentPlayer;
+      this.currentPlayer &#x3D; this.currentPlayer &#x3D;&#x3D;&#x3D; &#x27;X&#x27; ? &#x27;O&#x27; : &#x27;X&#x27;;
+    }
+
+  }
+
+  checkResultado() {
+    for (let i &#x3D; 0; i &lt; 3; i++) {
+      if (this.board[i][0] !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this.board[i][0] &#x3D;&#x3D;&#x3D; this.board[i][1] &amp;&amp; this.board[i][0] &#x3D;&#x3D;&#x3D; this.board[i][2]) {
+        if (this.board[i][0] &#x3D;&#x3D;&#x3D; &#x27;X&#x27;) {
+          this.playerScore(1)
+        }
+        else if (this.board[i][0] &#x3D;&#x3D;&#x3D; &#x27;O&#x27;) {
+          this.playerScore(2)
+        }
+        this.resetBoard();
+        return;
+      }
+    }
+
+    for (let j &#x3D; 0; j &lt; 3; j++) {
+      if (this.board[0][j] !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this.board[0][j] &#x3D;&#x3D;&#x3D; this.board[1][j] &amp;&amp; this.board[0][j] &#x3D;&#x3D;&#x3D; this.board[2][j]) {
+        if (this.board[0][j] &#x3D;&#x3D;&#x3D; &#x27;X&#x27;) {
+          this.playerScore(1)
+        }
+        else if (this.board[0][j] &#x3D;&#x3D;&#x3D; &#x27;O&#x27;) {
+          this.playerScore(2)
+        }
+        this.resetBoard();
+        return;
+      }
+    }
+
+    if (this.board[0][0] !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this.board[0][0] &#x3D;&#x3D;&#x3D; this.board[1][1] &amp;&amp; this.board[0][0] &#x3D;&#x3D;&#x3D; this.board[2][2]) {
+      if (this.board[0][0] &#x3D;&#x3D;&#x3D; &#x27;X&#x27;) {
+        this.playerScore(1)
+      }
+      else if (this.board[0][0] &#x3D;&#x3D;&#x3D; &#x27;O&#x27;) {
+        this.playerScore(2)
+      }
+      this.resetBoard();
+      return;
+    }
+    if (this.board[0][2] !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this.board[0][2] &#x3D;&#x3D;&#x3D; this.board[1][1] &amp;&amp; this.board[0][2] &#x3D;&#x3D;&#x3D; this.board[2][0]) {
+      if (this.board[0][2] &#x3D;&#x3D;&#x3D; &#x27;X&#x27;) {
+        this.playerScore(1)
+      }
+      else if (this.board[0][2] &#x3D;&#x3D;&#x3D; &#x27;O&#x27;) {
+        this.playerScore(2)
+      }
+      this.resetBoard();
+      return;
+    }
+
+    if (this.isBoardFull()) {
+      this.openModalSelect(&#x27;velha&#x27;)
+      this.resetBoard();
+    }
+  }
+
+  private playerScore(player: number) {
+    if (player &#x3D;&#x3D;&#x3D; 1) {
+      const score &#x3D; Number(this.localStorageService.getItem(&#x27;player1-score&#x27;)) || 0
+      this.placar.player1.score &#x3D; (score + 1).toString();
+      this.localStorageService.setItem(&#x27;player1-score&#x27;, this.placar.player1.score.toString())
+      this.openModalSelect(&#x27;player1&#x27;);
+    }
+    else if (player &#x3D;&#x3D;&#x3D; 2) {
+      const score &#x3D; Number(this.localStorageService.getItem(&#x27;player2-score&#x27;)) || 0
+      this.placar.player2.score &#x3D; (score + 1).toString();
+      this.localStorageService.setItem(&#x27;player2-score&#x27;, this.placar.player2.score.toString())
+      this.openModalSelect(&#x27;player2&#x27;)
+    }
+  }
+
+  private openModalSelect(result: string): void {
+    let modalWidth &#x3D; &#x27;90vw&#x27;;
+    if (window.innerWidth &gt; 768) modalWidth &#x3D; &#x27;600px&#x27;;
+    this.modalService.openModal(ModalResultComponent, {
+      width: modalWidth,
+      data: { result }, 
+    });
+  }
+
+  isBoardFull(): boolean {
+    for (let i &#x3D; 0; i &lt; 3; i++) {
+      for (let j &#x3D; 0; j &lt; 3; j++) {
+        if (this.board[i][j] &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  private resetBoard() {
+    this.board &#x3D; [
+      [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;],
+      [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;],
+      [&#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;]
+    ];
+    const random1or2 &#x3D; Math.floor(Math.random() * 2) + 1;
+    if (random1or2 &#x3D;&#x3D;&#x3D; 1) {
+      this.currentPlayer &#x3D; &#x27;X&#x27;;
+    } else {
+      this.currentPlayer &#x3D; &#x27;O&#x27;;
+    }
+  }
+
+  private openSnackBar(message: string) {
+    this._snackBar.open(message, &#x27;OK&#x27;, {
+      duration: 5000
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;current-player&quot;&gt;Vez de: {{ currentPlayer &#x3D;&#x3D;&#x3D; &#x27;X&#x27; ? placar.player1.name : placar.player2.name }}&lt;/h1&gt;
+&lt;div class&#x3D;&quot;board&quot; (click)&#x3D;&quot;checkResultado()&quot;&gt;
+    @for (row of board; track row; let i &#x3D; $index) {
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            @for (square of row; track square; let j &#x3D; $index) {
+                &lt;div class&#x3D;&quot;square&quot; (click)&#x3D;&quot;fazerJogada(i, j)&quot;&gt;
+                    @if (square &#x3D;&#x3D;&#x3D; &#x27;X&#x27;) {
+                        &lt;img src&#x3D;&quot;{{ placar.player1.thumbnail }}&quot;&gt;
+                    }
+                    @else if (square &#x3D;&#x3D;&#x3D; &#x27;O&#x27;) {
+                        &lt;img src&#x3D;&quot;{{ placar.player2.thumbnail }}&quot;&gt;
+                    }
+                    @else {
+                        {{ square }}
+                    }
+                &lt;/div&gt;
+            }
+        &lt;/div&gt;
+    }
+&lt;/div&gt;
+&lt;app-placar [placar]&#x3D;&quot;placar&quot; /&gt; </code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h1 class="current-player">Vez de: {{ currentPlayer === \'X\' ? placar.player1.name : placar.player2.name }}</h1><div class="board" (click)="checkResultado()">    @for (row of board; track row; let i = $index) {        <div class="row">            @for (square of row; track square; let j = $index) {                <div class="square" (click)="fazerJogada(i, j)">                    @if (square === \'X\') {                        <img src="{{ placar.player1.thumbnail }}">                    }                    @else if (square === \'O\') {                        <img src="{{ placar.player2.thumbnail }}">                    }                    @else {                        {{ square }}                    }                </div>            }        </div>    }</div><app-placar [placar]="placar" /> </div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'CharacterBoxComponent', 'selector': 'app-character-box'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ModalResultComponent', 'selector': 'app-modal-result'},{'name': 'ModalSelectCharacterComponent', 'selector': 'app-modal-select-character'},{'name': 'PlacarComponent', 'selector': 'app-placar'},{'name': 'SearchComponent', 'selector': 'app-search'},{'name': 'TitleComponent', 'selector': 'app-title'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BoardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BoardComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

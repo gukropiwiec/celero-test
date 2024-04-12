@@ -4,11 +4,13 @@ import { Subscription } from 'rxjs';
 import { ModalService } from '../../services/modal.service';
 import { ModalResultComponent } from '../modal-result/modal-result.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { IPlacar } from '../../interfaces/placar.interface';
+import { PlacarComponent } from '../placar/placar.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [],
+  imports: [PlacarComponent],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
@@ -19,7 +21,7 @@ export class BoardComponent implements OnInit {
     ['', '', '']
   ];
   currentPlayer: string = 'X';
-  placar = {
+  placar: IPlacar = {
     player1: {
       score: '0',
       name: '',
@@ -170,14 +172,12 @@ export class BoardComponent implements OnInit {
       ['', '', ''],
       ['', '', '']
     ];
-    this.currentPlayer = 'X';
-  }
-
-  resetPlacar() {
-    this.placar.player1.score = '0'
-    this.placar.player2.score = '0'
-    this.localStorageService.setItem('player1-score', '0')
-    this.localStorageService.setItem('player2-score', '0')
+    const random1or2 = Math.floor(Math.random() * 2) + 1;
+    if (random1or2 === 1) {
+      this.currentPlayer = 'X';
+    } else {
+      this.currentPlayer = 'O';
+    }
   }
 
   private openSnackBar(message: string) {

@@ -1,0 +1,18 @@
+<div class="placar mt-3">
+    <h1>Placar:</h1>
+    <h2>Jogador 1
+        @if (placar.player1.name) {
+            <span>- {{ placar.player1.name }}</span>
+        }
+        : 
+        <b>{{ placar.player1.score }}</b>
+    </h2>
+    <h2>Jogador 2
+        @if (placar.player2.name) {
+            <span>- {{ placar.player2.name }}</span>
+        }
+        : 
+        <b>{{ placar.player2.score }}</b>
+    </h2>
+    <button class="btn btn-light mb-4" (click)="resetPlacar()">Resetar Placar</button>
+</div>
