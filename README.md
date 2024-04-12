@@ -3,7 +3,7 @@
 Angular: 17.3.0
 
 ## Live Demo
-<a href=“https://gukropiwiec.github.io/celero-test/“>Live Demo - Jogo da Velha Marvel</a>
+[Live Demo - Jogo da Velha Marvel](https://gukropiwiec.github.io/celero-test/ "Live Demo")
 * Procure pelo nome dos personagens e selecione os dois jogadores antes de iniciar
 
 ## Instalar Dependências
