@@ -5,5 +5,6 @@ export interface IApiResponse {
     data: {
         limit: number;
         results: ICharacter[]
-    }
+    },
+    message?: string;
 }

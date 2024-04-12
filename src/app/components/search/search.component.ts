@@ -8,6 +8,7 @@ import { CharacterBoxComponent } from '../character-box/character-box.component'
 import { LocalStorageService } from '../../services/localstorage.service';
 import { ICharacter } from '../../interfaces/character.interface';
 import { IApiResponse } from '../../interfaces/api-response.interrface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-search',
@@ -25,7 +26,8 @@ export class SearchComponent {
   constructor(
     private httpService: HttpService<IApiResponse>,
     private modalService: ModalService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private _snackBar: MatSnackBar
   ) {
     if (localStorage.getItem('player1')) {
       this.player1 = JSON.parse(localStorage.getItem('player1') as string)
@@ -40,12 +42,16 @@ export class SearchComponent {
     if (player === 1) searchText = this.searchText1;
     if (player === 2) searchText = this.searchText2;
     if (searchText.trim() !== '') {
-      const searchResult = await lastValueFrom(this.httpService.get<IApiResponse>('characters', { nameStartsWith: searchText }));
-      if (searchResult) {
-        if (searchResult.code == 200) {
-          console.log(searchResult.data.results)
-          this.openModalSelect(searchResult.data.results, player)
+      try {
+        const searchResult = await lastValueFrom(this.httpService.get<IApiResponse>('characters', { nameStartsWith: searchText }));
+        if (searchResult) {
+          if (searchResult.code == 200) {
+            this.openModalSelect(searchResult.data.results, player)
+          }
         }
+      } catch (error: any) {
+        console.log(error)
+        this.openSnackBar(error.error.message ? `API Error - ${error.status}: ${error.error.message}` : `API Unavailable - ${error.status}`);
       }
     }
   }
@@ -81,5 +87,11 @@ export class SearchComponent {
       this.localStorageService.removeItem('player2')
       this.player2 = null;
     }
+  }
+
+  private openSnackBar(message: string) {
+    this._snackBar.open(message, 'OK', {
+      duration: 5000
+    });
   }
 }
