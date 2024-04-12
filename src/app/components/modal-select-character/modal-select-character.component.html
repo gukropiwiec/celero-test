@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content class="mat-typography">
+    <main>
+        <div class="row">
+            @if (data.dados.length > 0) {
+                @for(character of data.dados; track character) {
+                    <app-character-box class="col-12 col-md-4 col-sm-6" [character]="character" (click)="selectCharacter(character)"/>
+                }
+            }
+            @else {
+                <div class="col-12">
+                    Nenhum personagem encontrado.
+                </div>
+            }
+        </div>
+    </main>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)="closeModal()">Cancelar</button>
+</mat-dialog-actions>

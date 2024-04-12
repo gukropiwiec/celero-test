@@ -1,0 +1,18 @@
+
+<h2 mat-dialog-title>Resultado</h2>
+<mat-dialog-content class="mat-typography">
+    <main>
+        <div class="row">
+            @if (result === "Velha!") {
+                <h1>{{ result }}</h1>
+            }
+            @else {
+                <h1 class="text-center">Vencedor!</h1>
+                <app-character-box [character]="result" />
+            }
+        </div>
+    </main>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)="closeModal()">Nova Partida</button>
+</mat-dialog-actions>

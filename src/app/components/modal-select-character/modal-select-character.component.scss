@@ -1,0 +1,11 @@
+.character-name {
+    height: 50px;
+}
+
+app-character-box {
+    cursor: pointer !important;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
